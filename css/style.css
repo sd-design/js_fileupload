@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&display=swap');
+body{
+    background: #eff3f5;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 200;
+}
+h1, h2{font-weight: 500;}
+.container{
+    width:70%;
+    margin: 0 auto;
+}
+.card{
+    background: #fff;
+    width:70%;
+    padding: 25px;
+    position: relative;
+    border-radius: 6px;
+    box-shadow: 1px 1px 10px 2px rgba(42, 52, 54, .1);
+}
+
+.btn{background: #319da1;
+    border:1px solid#319da1;
+    position: relative;
+    color: #fff ;
+    outline: none;
+    border-radius: 77px;
+    cursor: pointer;
+    padding: 0.5rem 1.5rem;
+    text-transform: uppercase;
+    transition: all 0.22s;
+}
+.btn-primary{
+    background: #fff;
+    border:1px solid#319da1;
+    color: #319da1;
+    margin-right: 20px;
+}
+.btn:hover{opacity: 0.7;}
+.btn-primary:hover{
+    background: #319da1;
+    border:1px solid#319da1;
+    color: #fff ;
+}
+.btn:active{box-shadow: inset 1px 1px 8px 2px rgba(42, 52, 54, .15);opacity: 0.87;}
+.btn:focus{box-shadow: 1px 1px 8px 2px rgba(42, 52, 54, .15);}
+input[type=file]{display: none;}
