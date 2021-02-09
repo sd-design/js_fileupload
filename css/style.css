@@ -49,6 +49,6 @@ input[type=file]{display: none;}
 .preview-image{margin-bottom: .5rem;margin-right: .5rem;position: relative;overflow: hidden;}
 .preview-image:hover .preview-remove{opacity: 1;}
 .preview-image:hover .preview-info{bottom:4px;}
-.preview-image img{width: 180px;height: auto;}
+.preview-image img{height: 150px;width: auto;display: inline-block;}
 .preview-remove{opacity:0;width:26px; height: 26px;position: absolute;top:0;right:0;font-weight: bold;background: rgba(255,255,255,0.5); cursor:pointer;display: flex;align-items: center;justify-content: center;transition: opacity 0.5s;}
 .preview-info{position: absolute;bottom:-30px;right:0;left:0; height: 26px;font-size: .77rem;background: rgba(255,255,255,0.5);display: flex;justify-content:space-between;transition: bottom 0.22s;padding: 0 5px;font-weight: 500;justify-align: center;}
