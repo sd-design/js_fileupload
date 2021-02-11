@@ -53,3 +53,4 @@ input[type=file]{display: none;}
 .preview-remove{opacity:0;width:26px; height: 26px;position: absolute;top:0;right:0;font-weight: bold;background: rgba(255,255,255,0.5); cursor:pointer;display: flex;align-items: center;justify-content: center;transition: opacity 0.5s;}
 .preview-info{position: absolute;bottom:-30px;right:0;left:0; height: 26px;font-size: .77rem;background: rgba(255,255,255,0.5);display: flex;justify-content:space-between;transition: bottom 0.22s;padding: 0 5px;font-weight: 500;align-items: center;}
 .preview-image.removing{transform: scale(0);transition: transform .3s;}
+.preview-info-progress{position: absolute;left: 0;top: 0; bottom: 1px;background: #319da1; text-align: center;transition: width .22s;display: flex;align-items: center;justify-content: center;}

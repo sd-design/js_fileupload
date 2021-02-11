@@ -21,12 +21,17 @@ function bytesToSize(bytes) {
      return node
  }
 
+ function noop(){
+
+ }
+
 export function upload(selector, options = {}){
     let files = []
-const input = document.querySelector(selector)
-const preview = newElement('div', ['preview'])
-const open = newElement('button',['btn', 'btn-primary'], 'Открыть')
-const upload = newElement('button', ['btn', 'hidden'], 'Загрузить','uploadBtn')
+    const onUpload = options.onUpload ?? noop
+    const input = document.querySelector(selector)
+    const preview = newElement('div', ['preview'])
+    const open = newElement('button',['btn', 'btn-primary'], 'Открыть')
+    const upload = newElement('button', ['btn', 'hidden'], 'Загрузить','uploadBtn')
 
 if(options.multi){
     input.setAttribute('multiple', true)
@@ -46,6 +51,7 @@ const changeHandler = event =>{
     }
     files = Array.from(event.target.files)
     preview.innerHTML = ''
+    upload.classList.remove('hidden')
     files.forEach(file=>{
         if(!file.type.match('image')){
             return
@@ -54,7 +60,7 @@ const changeHandler = event =>{
         const reader = new FileReader()
         reader.onload = ev =>{
             const imageSrc = ev.target.result
-            console.log(ev.target.result)
+            //console.log(ev.target.result)
             preview.insertAdjacentHTML('afterbegin', `
             <div class="preview-image">
             <div class="preview-remove" data-name="${file.name}">&times;</div>
@@ -79,13 +85,29 @@ const removeHandler = event =>{
     const {name} = event.target.dataset
     console.log(name)
     files = files.filter(file => file.name !== name)
+    if(!files.length){
+        upload.classList.add('hidden')
+    }
     const block = preview.querySelector(`[data-name="${name}"]`).closest('.preview-image')
     block.classList.add('removing')
     setTimeout(()=>block.remove(),300)
+}
+
+const clearPreview = (el) => {
+    el.style.bottom = '4px'
+    el.innerHTML = '<div class="preview-info-progress"></div>'
+}
+
+const uploadHandler = () => {
+    preview.querySelectorAll('.preview-remove').forEach(e=>e.remove())
+    const previewInfo = preview.querySelectorAll('.preview-info')
+    previewInfo.forEach(clearPreview)
+    onUpload(files, previewInfo)
 }
 
 
 open.addEventListener('click', triggerInput)
 input.addEventListener('change', changeHandler)
 preview.addEventListener('click', removeHandler)
+upload.addEventListener('click', uploadHandler)
 }
