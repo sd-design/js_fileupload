@@ -102,7 +102,7 @@ const uploadHandler = () => {
     preview.querySelectorAll('.preview-remove').forEach(e=>e.remove())
     const previewInfo = preview.querySelectorAll('.preview-info')
     previewInfo.forEach(clearPreview)
-    onUpload(files, previewInfo)
+    onUpload(files, preview)
 }
 
 
