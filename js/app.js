@@ -34,7 +34,10 @@ upload('#file', {
             console.log(error)
         },
         ()=>{
-            console.log('Complete')
+            task.snapshot.ref.getDownloadURL().then(url=>{
+                console.log('Download url:', url)
+            })
+            //console.log('Complete')
         })
     })
     }
